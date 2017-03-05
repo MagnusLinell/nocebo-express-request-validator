@@ -22,7 +22,7 @@ const validateSchema = (options) => {
     const validateFind = ajv.compile(options.schema.find);
     const validateDelete = ajv.compile(options.schema.delete);
     return (req, res, next) => {
-        const valid = false;
+        let valid = false;
         if (req.method === 'POST' || req.method === 'PUT') {
             valid = validateSave(req.body);
         } else if (req.method === 'GET') {
