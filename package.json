@@ -1,0 +1,18 @@
+{
+  "name": "nocebo-express-request-validator",
+  "version": "1.0.0",
+  "description": "Nocebo express request validator.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Magnus Linell",
+  "license": "UNLICENCED",
+  "dependencies": {
+    "ajv": "4.11.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:MagnusLinell/nocebo-express-request-validator.git"
+  }
+}
