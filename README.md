@@ -12,19 +12,33 @@ Needs harmony to be set when used:
 
 Options:
 
-    schema: String | JSON Schema
+    schema.body: String | JSON Schema
+    schema.query: String | JSON Schema
 
 Example:
 
     {
       schema: {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string"
-          }
+        body: {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": ["title"]
         },
-        "required": ["title"]
+        query: {
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": ["id"]
+          }
+        }
       }
     }
 
