@@ -1,6 +1,6 @@
 {
   "name": "nocebo-express-request-validator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nocebo express request validator.",
   "main": "src/index.js",
   "scripts": {
