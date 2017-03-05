@@ -22,16 +22,18 @@ const validateSchema = (options) => {
     const validateFind = ajv.compile(options.schema.find);
     const validateDelete = ajv.compile(options.schema.delete);
     return (req, res, next) => {
-        let valid = false;
         if (req.method === 'POST' || req.method === 'PUT') {
-            valid = validateSave(req.body);
+            if (!validateSave(req.body)) {
+                return next({code: 'validation', error: validateSave.errors});
+            }
         } else if (req.method === 'GET') {
-            valid = validateFind(req.query);
+            if (!validateFind(req.query)) {
+                return next({code: 'validation', error: validateFind.errors});
+            }
         } else if (req.method === 'DELETE') {
-            valid = validateDelete(req.query);
-        }
-        if (!valid) {
-            return next({code: 'validation', error: validate.errors});
+            if (!validateDelete(req.query)) {
+                return next({code: 'validation', error: validateDelete.errors});
+            }
         }
         next();
     }
